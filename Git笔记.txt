@@ -1,6 +1,42 @@
 Git
 
 什么是Git？
+
+	最先进版本控制系统（分布式）
+	分布式（无中心服务器，参与者相互之间上传、下载文件，每台终端都可当做中心服务器）
+	集中式（有一台中心服务器，参与者从中心服务器上传、下载文件；每次改动都要从中心服务器上传、下载）
+Git诞生？
+	SVN
+	Linux Linus（因SVN收费，Linus编写了Git）
+
+Git的安装
+	创建一个空的目录，进入，空白处右键，选择“git bash here”
+	初始化命令：git init
+
+创建版本库
+	创建一个空的目录，进入，空白处右键，选择“git bash here”
+	初始化命令：git init
+
+把文件添加到版本库
+	手动创建一个[文本文件]，并写入内容，存入工作区
+	将文件添加到仓库的暂存区：git add 文件名
+	将文件提交到仓库的master：git commit -m "提示信息"
+	查看仓库状态：git status
+
+修改文件
+	手动修改文件，存入工作区
+		将文件添加到仓库的暂存区：git add 文件名
+		将文件提交到仓库的master：git commit -m "提示信息"
+
+时光穿梭
+	版本：HEAD^：上一个版本
+			  HEAD^^：上上一个版本
+			  HEAD~100:前第100个版本
+			  版本号：git log命令执行后显示在commit后面的编码
+		后退版本：git reset --hard 版本
+		更改版本：git reset --hard （git reflog命令执行后的版本号）
+
+
 最先进的版本控制系统
 分布式
 集中式
@@ -45,6 +81,37 @@ git reflog
 
 
 撤销修改
+	1、只修改了工作区文件，没有add和commit，命令：git checkout -- 文件名
+			checkout：用master区文件的最新版本覆盖工作区的版本
+		2、修改了工作区文件，并add，没commit，
+			a、清除暂存区，命令：git reset HEAD 文件名
+			b、用文件的最新版本覆盖工作区的版本，命令：git checkout -- 文件名
+		3、修改了工作区文件，并add和commit，命令：git reset - hard HEAD^
+
+删除文件
+	误删：手动删除了一个文件，恢复命令：git checkout -- 文件名
+		真删：手动删除了一个文件；git rm 文件名，添加到暂存区；最后提交到master
+		真删恢复：参见时光穿梭
+
+远程仓库
+	Github
+	注册账号
+	生成本机SSH（密匙）
+		命令：ssh-keygen -t rsa -C "邮箱地址"
+		SSH位置：C/用户/web/.ssh
+
+从本地仓库推送到远程
+	连接到远程仓库：
+		git remote add origin 地址
+	删除已有的远程仓库：
+		git remot rm origing
+	把本地仓库推推送到远程
+		git push -u origin master  第一次推送
+		git push origin master     以后推送
+
+从远程仓库下载到本地
+	命令：git clone 地址
+
 场景1：当只修改工作区文件，没有add和commit
 		git checkout -- 文件名
 场景2：修改文件，并add，但没有commit
@@ -77,9 +144,80 @@ git push origin
 从远程仓库下载到本地
 git clone 地址
 
+
 下载别人的仓库，进行修改，再上传
+	a、添加好友
+	b、添加SSH
+	c、git clone 地址
+	e、修改，add，commit
+	f、git push -u origin master
 
 回顾：
+
+	设置用户名
+		git config --global user.name "name"
+	设置邮箱
+		git config --global user.email "email"
+	初始化版本库
+		git init
+	查看仓库状态
+		git status
+	提交到暂存区
+		git add 文件名
+	提交到master
+		git commit -m "提示信息"
+	查看当前历史
+		git log
+	查看所有历史
+		git reflog
+	版本更改
+		版本：HEAD^：上一个版本
+			  HEAD^^：上上一个版本
+			  HEAD~100:前第100个版本
+			  版本号：git log命令执行后显示在commit后面的编码
+		后退版本：git reset --hard 版本
+		更改版本：git reset --hard （git reflog命令执行后的版本号）
+
+	用master的最新版本替换工作区文件
+		git checkout -- 文件名
+	撤销暂存区的修改
+		a、清除暂存区，命令：git reset HEAD 文件名
+			b、用文件的最新版本覆盖工作区的版本，命令：git checkout -- 文件名
+	删除：
+		误删：手动删除了一个文件，恢复命令：git checkout -- 文件名
+		真删：手动删除了一个文件；git rm 文件名，添加到暂存区；最后提交到master
+		真删恢复：参见时光穿梭
+	远程仓库
+		
+分支
+	创建与合并   10:45
+		ithub
+	注册账号
+	生成本机SSH（密匙）
+		命令：ssh-keygen -t rsa -C "邮箱地址"
+		SSH位置：C/用户/web/.ssh
+	在github创建一个新的仓库：
+	
+	解决冲突
+		多分支同时修改同一文件，合并分支时发现合并冲突，
+		查看文件，发现有冲突的特殊提示，
+		手动修改文件内容，并提交，
+		最后删除分支，冲突处理完成。
+	合作开发
+		a、添加好友
+		b、添加SSH
+	参加开源项目
+		1、把别人的项目fork到自己的远程仓库
+		2、将文件从自己的远程仓库clone到本地仓库
+		3、修改，add，commit
+		4、push到自己的远程仓库
+		5、New pull request
+	从远程合并到本地
+		1、将远程仓库的分支推送到本地并新建一个分支
+			git fetch origin master:new（把远程的master分支clone到本地，并命名为new分支)
+		2、查看远程分支和本地分支的区别：手动查看
+		3、决定是否合并，若有冲突手动解决重复
+
 
 设置用户名
 git config --global user.name "用户名"	
@@ -140,12 +278,7 @@ Github
 解决冲突
 系统提示：both modified:文件名（红色）
 需手动修改文件
-<<<<<HEAD
-冲突内容
-========
-冲突内容
->>>>>work
-手动修改内容并删除“<<<<<HEAD,========,>>>>>work”
+手动修改内容并删除
 之后再次提交
 		
 合作开发
@@ -157,3 +290,4 @@ Github
 
 从远程合并到本地
 git clone 地址	
+
