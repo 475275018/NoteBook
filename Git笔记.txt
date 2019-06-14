@@ -42,9 +42,9 @@ Git的安装
 
 回顾：
 	设置用户名
-	
+	git config --global user.name "名字"
 	设置邮箱
-	
+	git config --global user.email "邮箱地址"
 	查看仓库状态  git status
 		
 	提交到暂存区  git add
