@@ -1,8 +1,17 @@
 Git
 
 什么是Git？
+	最先进的版本控制系统
+	分布式
+	集中式
+
 最先进的版本控制系统
+    SVN
+	Linux  Linu
 分布式
+	安装好之后，告诉Git你的个人信息
+	git config --global user.name "你的名字"
+	git config --global user.email "你的邮箱"
 集中式
 
 Git诞生？
