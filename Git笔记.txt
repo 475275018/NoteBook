@@ -260,7 +260,12 @@ git relog
 		
 分支
 创建与合并  
-		
+		查看分支  git branch
+     创建分支  git branch 分支名
+     切换分支  git checkout 分支名
+     合并分支  git merge 分支名
+     删除分支  git branch -d 分支名（合并之后才能删除分支）
+
 解决冲突
 		
 合作开发
