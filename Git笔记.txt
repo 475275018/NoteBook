@@ -113,21 +113,47 @@ git relog
 更改为目标版本  ：git checkout -- 文件名（文件名通过查看历史获得）
 
 用master的最新版本替换工作区文件
-		
+git checkout HEAD 文件名
+
 撤销暂存区的修改
+git reset HEAD 文件名
 		
 删除：
-		
+误删：手动删除一个文件 git checkout -- 文件名
+删除：手动删除一个文件 添加到暂存区 git rm 文件名
+
 远程仓库
+Github
+注册账号 生成本机的ssh{密匙} ssh-keygen -t rsa -C "邮箱地址" 钥匙地址在C盘
+链接到远程仓库  :git remote add origin
+从本地推送到仓库:git push (-u) origin master (第一次上传加-u)
+从远程仓库到本地：git clone 地址
 		
 分支
+查看分支：git branch 
+
 创建与合并  
-		
+创建分支           ：git branch 分支名
+切换到新分支进行工作：git checkout 分支名
+切换到目标分支并合并：git merge 被合并分支名
+
 解决冲突
+系统提示：both modified:文件名（红色）
+需手动修改文件
+<<<<<HEAD
+冲突内容
+========
+冲突内容
+>>>>>work
+手动修改内容并删除“<<<<<HEAD,========,>>>>>work”
+之后再次提交
 		
 合作开发
-		
+添加好友：在邮箱中确认或者地址栏直接输入好友确认连接
+添加钥匙：比较麻烦一般不采用
+
 参加开源项目
-		
+好用的前端框架，开源免费：bootstrop		
+
 从远程合并到本地
-		
+git clone 地址	
