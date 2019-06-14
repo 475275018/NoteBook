@@ -1,4 +1,4 @@
-Git
+﻿Git
 	学习Git这门强大的工具
 什么是Git？
 
@@ -45,19 +45,15 @@ Git的安装
 	
 	设置邮箱
 	
-	初始化版本库
-	
-	查看仓库状态
+	查看仓库状态  git status
 		
-	提交到暂存区
+	提交到暂存区  git add
 		
-	提交到master
+	提交到master  git commit -m ""
 		
-	查看当前历史
+	查看当前历史 git log
 		
-	查看所有历史
-		
-	版本更改
+	查看所有历史 git reflog
 	
 	用master的最新版本替换工作区文件
 		
