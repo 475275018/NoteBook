@@ -35,6 +35,46 @@ Git的安装
 		后退版本：git reset --hard 版本
 		更改版本：git reset --hard （git reflog命令执行后的版本号）
 
+最先进的版本控制系统
+分布式
+集中式
+
+Git诞生？
+SVN
+Linux Linus
+
+Git的安装
+安装好之后，告诉Git你的个人信息
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱"
+
+创建版本库
+步骤：
+创建一个空的目录 -- 进入到目录所在的地方
+执行初始化命令  git init
+
+把文件添加到版本库
+手动创建一个文本文件，并写入内容
+查看仓库状态      git status
+将文件添加到仓库  git add 文件名
+将文件提交到仓库  git commit -m "提示信息"
+
+修改文件
+手动修改文件
+将文件添加到仓库        git add 文件名
+将文件提交到仓库        git commit -m "提示信息"
+查看每一个文件的版本信息 git log
+
+时光穿梭
+后退版本： git reset --hard 版本 
+版本：
+HEAD^ :上一个版本
+HEAD^^：上上个版本
+HEAD~100：前100个版本
+版本号
+查看版本库历史记录：
+git reflog	
+
 工作区和暂存区
 
 
@@ -70,6 +110,39 @@ Git的安装
 从远程仓库下载到本地
 	命令：git clone 地址
 
+场景1：当只修改工作区文件，没有add和commit
+		git checkout -- 文件名
+场景2：修改文件，并add，但没有commit
+		a.清除暂存区
+			git reset HEAD 文件名
+		b.按场景1操作	
+
+删除文件
+误删：
+		手动删除了一个文件
+		想要恢复：
+		git checkout -- 文件名
+
+真删：
+		手动删除了一个文件
+		添加到暂存区
+		提交	
+
+远程仓库
+Github
+注册账号
+生成本机的SSH（密钥）
+ssh-keygen   -t   rsa   -C    "邮箱地址"
+钥匙的地址：C://用户//web//.ssh
+在github创建一个新的仓库：
+
+从本地仓库推送到远程
+git push origin	
+
+从远程仓库下载到本地
+git clone 地址
+
+
 下载别人的仓库，进行修改，再上传
 	a、添加好友
 	b、添加SSH
@@ -78,6 +151,7 @@ Git的安装
 	f、git push -u origin master
 
 回顾：
+
 	设置用户名
 		git config --global user.name "name"
 	设置邮箱
@@ -141,3 +215,56 @@ Git的安装
 			git fetch origin master:new（把远程的master分支clone到本地，并命名为new分支)
 		2、查看远程分支和本地分支的区别：手动查看
 		3、决定是否合并，若有冲突手动解决重复
+
+
+设置用户名
+git config --global user.name "用户名"	
+
+设置邮箱
+git config --global user.email "邮箱"
+
+初始化版本库
+git init
+
+查看仓库状态
+git status
+		
+提交到暂存区
+git add 文件名
+
+提交到master
+git commit -m "改动记录"
+交给git秘书管理
+		
+查看当前历史
+git log 
+		
+查看所有历史
+git relog
+
+版本更改
+更改为上一个版本：git reset --hard HEAD^
+更改为上上个版本：git reset --hard HEAD^^
+更改为第**个版本：git reset --hard HEAD~**
+更改为目标版本  ：git checkout -- 文件名（文件名通过查看历史获得）
+
+用master的最新版本替换工作区文件
+		
+撤销暂存区的修改
+		
+删除：
+		
+远程仓库
+		
+分支
+创建与合并  
+		
+解决冲突
+		
+合作开发
+		
+参加开源项目
+		
+从远程合并到本地
+		
+
