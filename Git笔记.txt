@@ -126,7 +126,16 @@ git relog
 解决冲突
 		
 合作开发
-		
+添加好友
+     https//github.com/好友名/myfile/invitations
+     添加钥匙SSH
+         删除远程连接
+             git remote rm origin
+
+         好友名1 clone 好友名2 的远程仓库到本地
+         在本地修改仓库内容
+         再推送给 好友名2 的远程仓库
+
 参加开源项目
 		
 从远程合并到本地
