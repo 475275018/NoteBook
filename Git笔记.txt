@@ -252,7 +252,7 @@ git relog
 
 用master的最新版本替换工作区文件
 		
-撤销暂存区的修改  
+撤销暂存区的修改 git checkout 
 
 撤回版本 git reset  --hard 编码    git reflog版本历史记录
 
