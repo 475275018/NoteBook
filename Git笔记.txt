@@ -252,16 +252,32 @@ git relog
 
 用master的最新版本替换工作区文件
 		
-撤销暂存区的修改
+撤销暂存区的修改  
+
+撤回版本 git reset  --hard 编码    git reflog版本历史记录
+
+
+1；当修改工作区文件，没有add或commit          git checkout -- 文件名
+
+           2；当修改工作区文件，已经add但没有commit    {清除暂存区} git reset HEAD 文件名     按场景区1操作
 		
 删除：
+
+误删；手动删除一个文件 git checkout -- 文件名      删；手动删除一个文件  添加到暂存区  git rm 文件名
+
 		
 远程仓库
 		
 分支
 创建与合并  
+
+查看分支 （branch） git branch         创建分支 git branch  分支名    
+
+        切换分支 git checkout 分支名          合并分支 git merge 分支名           删除分支  git branch -d 分支名
 		
 解决冲突
+
+合并分支，发现合并错误   查看文件，发现文件有冲突的特殊显示   在手动修改文件内容，并提交   最后删除分支，冲突处理完成
 		
 合作开发
 		
@@ -270,3 +286,4 @@ git relog
 从远程合并到本地
 		
 
+   今晚的全部消费由赵公子买单！！！
